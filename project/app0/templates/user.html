@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For users</title>
+</head>
+<body>
+    <h2 style="text-align: center;">Search:</h2>
+    <form style="text-align: center;" action="user" method="post">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="request">
+            <input type="submit" value="->">
+        </div>
+    </form>
+
+    {%for i in products%}
+        <a href="{{i.id}}"><b>{{i.name}}</b></a>
+        <p style="font-size: 15pt;">{{i.price}}$</p>
+        <h2>ㅤ</h2>
+        
+    {%empty%}
+        <p style="font-size: 15pt;">We dont have this product :(</p>
+    {%endfor%}
+    
+</body>
+</html>
